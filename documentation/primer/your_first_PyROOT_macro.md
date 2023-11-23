@@ -69,12 +69,15 @@ The macro is executed by typing
 ```
 
 at the system prompt. You realise this will execute the macro and exit
-directly to the shell. You can stay on the python interactive prompty by using
+directly to the shell. This may be inconvenient in case you want to interact
+further with the graphics or the created objexts.
+You can stay on the python interactive prompty by using
 
 ``` {.sh}
  > python -i macro.py
 ```
 
+Quit the Python interpreter as usual when done.
 You can also run the macro from the interactive Python command line, using these versions (or variations thereof):
 
 ``` {.py}
