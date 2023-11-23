@@ -9,15 +9,16 @@ interface, ideal for interactive analysis, an interpreter for the C++
 programming language, for rapid and efficient prototyping and a
 persistency mechanism for C++ objects, used also to write every year
 petabytes of data recorded by the Large Hadron Collider experiments.
-This introductory guide focuses on the PyROOT interface and
+
+This introductory guide focuses on the Python interface -- PyROOT -- and
 illustrates the main features of ROOT which are
 relevant for the typical problems of data analysis: input and plotting of data
 from measurements and fitting of analytical functions.
 
-*Original Authors*
+*Original Authors of the [ROOT Primer](https://root.cern/primer)*
 - D. Piparo
 - G. Quast
 - M. Zeise
 
-*Modifications*
+*Modifications and simplifications for PyROOT*
 - J. Kretzschmar
