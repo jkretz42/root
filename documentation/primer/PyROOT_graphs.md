@@ -101,65 +101,45 @@ this generator uses the Mersenne Twister algorithm [@MersenneTwister]).
 
 Let's go through the code, step by step to understand what is going on:
 
--   Line *3*: This sets the palette colour code to a much nicer one than
+-   Line *5*: This sets the palette colour code to a nicer one than
     the default. Comment this line to give it a try.
     [This article](https://root.cern.ch/drupal/content/rainbow-color-map)
     gives more details about colour map choice.
 
--   Line *7*: The instance of the random generator. You can then draw
-    out of this instance random numbers distributed according to
-    different probability density functions, like the Uniform one at
-    lines *27-29*. See the on-line documentation to appreciate the full
-    power of this ROOT feature.
-
--   Line *8*: You are already familiar with the `TF1` class. This is
-    its two-dimensional version. At line *16* two random numbers
+-   Line *10*: You are already familiar with the `TF1` class. This is
+    its two-dimensional version. At line *19* two random numbers
     distributed according to the `TF2` formula are drawn with the method
-    `TF2::GetRandom2(double& a, double&b)`.
+    `TF2::GetRandom2(double& a, double&b)`. Note because this method
+    needs to return values into the arguments given, we need to define
+    `x` and `y` as arrays of length 1 at lines *16-17* (One of the rare cases,
+    where the C++/ROOT code would look simpler than PyROOT!)
 
--   Line *27-29*: Fitting a 2-dimensional function just works like in
+-   Line *21*: We use the 'default' random number generator accessible
+    in `ROOT.gRandom`. You can then draw out of this instance random
+    numbers distributed according to different probability density
+    functions, like the Uniform one at lines *27-29*. See the on-line
+    documentation for `TRandom` to appreciate the full power of this
+    ROOT feature.
+
+-   Line *29-31*: Fitting a 2-dimensional function just works like in
     the one-dimensional case, i.e. initialisation of parameters and
     calling of the `Fit()` method.
 
--   Line *34*: The *Surf1* option draws the `TF2` objects (but also
+-   Line *38*: The *Surf1* option draws the `TF2` objects (but also
     bi-dimensional histograms) as coloured surfaces with a wire-frame on
     three-dimensional canvases. See Figure [4.3](#f43).
 
--   Line *35-40*: Retrieve the axis pointer and define the axis titles.
+-   Line *39-44*: Set axes titles and make sure they do not collide
 
--   Line *41*: Draw the cloud of points on top of the coloured surface.
+-   Line *45*: Draw the cloud of points on top of the coloured surface.
 
--   Line *43-49*: Here you learn how to create a canvas, partition it in
-    two sub-pads and access them. It is very handy to show multiple
-    plots in the same window or image.
+-   Line *47-53*: Create another canvas, partition it in
+    two sub-pads and access them to show the projections.
 
 [f43]: figures/fitted2dFunction.png "f43"
 <a name="f43"></a>
 
 ![A dataset fitted with a bidimensional function visualised as a colored
 surface.\label{f43}][f43]
-
-\newpage
-
-## Multiple graphs ##
-
-The class `TMultigraph` allows to manipulate a set of graphs as a single entity.
-It is a collection of `TGraph` (or derived) objects. When drawn, the X and Y axis
-ranges are automatically computed such as all the graphs will be visible.
-
-``` {.cpp .numberLines}
-@ROOT_INCLUDE_FILE macros/multigraph.C
-```
-- Line *6* creates the multigraph.
-
-- Line *9-28*: create two graphs with errors and add them in the multigraph.
-
-- Line *30-32*: draw the multigraph. The axis limits are computed automatically
-  to make sure all the graphs' points will be in range.
-
-[f44]: figures/multigraph.png "f44"
-<a name="f44"></a>
-
-![A set of graphs grouped in a multigraph.\label{f44}][f44]
 
 [^3] https://root.cern.ch/drupal/content/rainbow-color-map
