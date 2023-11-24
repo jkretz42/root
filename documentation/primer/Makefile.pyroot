@@ -1,10 +1,10 @@
 MDFILES=PyROOT_abstract.md PyROOT_Introduction.md PyROOT_as_calculator.md \
-	your_first_PyROOT_macro.md PyROOT_graphs.md histograms.md \
+	your_first_PyROOT_macro.md PyROOT_graphs.md PyROOT_histograms.md \
 	functions_and_parameter_estimation.md filio.md root_in_python.md \
 	concludingRemarks.md references.md
 
 MDFILESMOD=PyROOT_abstract_preprocessed.md PyROOT_Introduction_preprocessed.md PyROOT_as_calculator_preprocessed.md \
-	   your_first_PyROOT_macro_preprocessed.md PyROOT_graphs_preprocessed.md histograms_preprocessed.md \
+	   your_first_PyROOT_macro_preprocessed.md PyROOT_graphs_preprocessed.md PyROOT_histograms_preprocessed.md \
 	   functions_and_parameter_estimation_preprocessed.md filio_preprocessed.md root_in_python_preprocessed.md \
 	   concludingRemarks_preprocessed.md references_preprocessed.md
 
